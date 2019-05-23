@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  total_win: 1
+  total_lost: 1
+  playoff_count: 1
+  championships: 1
+
+two:
+  name: MyString
+  total_win: 1
+  total_lost: 1
+  playoff_count: 1
+  championships: 1

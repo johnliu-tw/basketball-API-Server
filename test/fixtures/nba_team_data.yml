@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: one
+  season: MyString
+  win: 1
+  lost: 1
+  srs: 1.5
+  top_player: one
+
+two:
+  team: two
+  season: MyString
+  win: 1
+  lost: 1
+  srs: 1.5
+  top_player: two

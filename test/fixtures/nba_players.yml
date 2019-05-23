@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  height: MyString
+  weight: 1
+  birth: 2019-05-23 09:45:55
+  school: MyString
+  start_year: 1
+  end_year: 1
+  draft_team: MyString
+  draft_pick: MyString
+  draft_year: 1
+  position: MyString
+  country: MyString
+
+two:
+  name: MyString
+  height: MyString
+  weight: 1
+  birth: 2019-05-23 09:45:55
+  school: MyString
+  start_year: 1
+  end_year: 1
+  draft_team: MyString
+  draft_pick: MyString
+  draft_year: 1
+  position: MyString
+  country: MyString

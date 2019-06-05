@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_06_05_080012) do
 
   create_table "counters", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "legend", limit: 45
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "page", limit: 45, default: "97"
   end
 
-  create_table "nba_player_datas", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "nba_player_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "player_id"
     t.integer "team_id"
     t.string "season", limit: 45
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.float "pf"
     t.float "pts"
     t.index ["id"], name: "id_UNIQUE", unique: true
+    t.index ["player_id"], name: "index_nba_player_data_on_player_id"
   end
 
   create_table "nba_players", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["id"], name: "id_UNIQUE", unique: true
   end
 
-  create_table "nba_team_datas", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "nba_team_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "team_id"
     t.string "season", limit: 45
     t.integer "win"
@@ -118,7 +119,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "position", limit: 45
   end
 
-  create_table "sbl_team_datas", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sbl_team_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "team_id", limit: 45
     t.string "season", limit: 45
     t.integer "win"

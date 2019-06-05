@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.5'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "6.0.0.rc1", github: "rails/rails", ref: "01b7e9b73ac9dca92be0969e047b9cb0c767f261"
+gem "rails", "6.0.0.rc1"
 # Use mysql2 as the database for Active Record
-gem 'mysql2', '>= 0.4.4'
+gem 'mysql2'
 # Environment variables
 gem 'dotenv-rails'
 # Use Puma as the app server
@@ -45,7 +43,6 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 

@@ -13,6 +13,8 @@ gem 'puma', '~> 3.11'
 gem 'rack-cors'
 # Set API protection like limitation, whitelists...
 gem 'rack-attack'
+# Optimize rails console print 
+gem "awesome_print"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -38,6 +40,12 @@ group :development, :test do
 
   # Use Factory Girl for generating random test data
   gem "factory_bot"
+
+  # Optimize debug console interface
+  gem 'byebug'
+  gem 'web-console', '~> 3.5.1'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do

@@ -5,4 +5,13 @@ class SblPlayer < ApplicationRecord
     def set_birth_date
         self.birth_date = self.birth.strftime("%Y-%m-%d")
     end
+
+    def as_json(options={})
+        super(:except => [:birth],
+              :methods => [:birth_date],
+              :include => {
+              }
+        )
+    end
+
 end

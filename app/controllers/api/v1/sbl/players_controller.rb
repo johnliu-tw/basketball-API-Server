@@ -1,41 +1,35 @@
-
-class Api::V1::PlayersController < ApplicationController
+class Api::V1::Sbl::PlayersController < ApplicationController
 
   # GET /nba_player_data
   def index
 
     # Query and output initialization 
     limit = 10
-    league = "nba"
     output_data = {
-      code: 0,
+      code: 200,
       msg: "success",
-      data: ""
     }
 
-
     if params['limit']
-      limit = params['limit'].to_i <200 ? params['limit']: 200
-    end
-    if params['league']
-      league = params['league']
+      limit = (params['limit'].to_i <20) && (params['limit'].to_i > 0) ? params['limit']: 20
     end
 
-    
-    if league == "nba"
-      player_data = NbaPlayer.order('RAND()').limit(limit)
-    elsif league == "sbl"
-      player_data = SblPlayer.order('RAND()').limit(limit)
-    else
-      player_data = ""
-    end
+    player_data = SblPlayer.order('RAND()').limit(limit)
 
     output_data['data'] = player_data
     
-    render json: output_data, methods: [:birth_date], except: [:birth]
+    render json: output_data
   end
 
   def show 
     
+    id =  params[:id]
+    player_data = SblPlayer.find_by(id: id)
+    player_play_data = SblPlayerDatum.where(player_id: id)
+
+    @response['data'] = player_data ? player_data : "Data not found"
+    @response['play_data'] = player_play_data.exists? ? player_play_data : "Data not found"
+
+    render json: @response
   end
 end

@@ -12,7 +12,7 @@ class Api::V1::Nba::PlayersController < ApplicationController
     }
 
     if params['limit']
-      limit = params['limit'].to_i <200 ? params['limit']: 200
+      limit = (params['limit'].to_i <200) && (params['limit'].to_i > 0) ? params['limit']: 200
     end
 
     player_data = NbaPlayer.order('RAND()').limit(limit)
@@ -23,13 +23,13 @@ class Api::V1::Nba::PlayersController < ApplicationController
   end
 
   def show 
-    
+
     id =  params[:id].to_i
     player_data = NbaPlayer.find(id)
     player_play_data = NbaPlayerDatum.where(player_id: id)
 
-    @response['data'] = player_data
-    @response['play_data'] = player_play_data
+    @response['data'] = player_data ? player_data : "Data not found"
+    @response['play_data'] = player_play_data.exists? ? player_play_data : "Data not found"
 
     render json: @response
   end

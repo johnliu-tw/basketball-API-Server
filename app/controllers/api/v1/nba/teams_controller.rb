@@ -1,35 +1,23 @@
 
 class Api::V1::Nba::TeamsController < ApplicationController
 
-  # GET /nba_player_data
   def index
 
-    # Query and output initialization 
-    limit = 10
-    output_data = {
-      code: 200,
-      msg: "success",
-    }
+    team_data = NbaTeam.where.not(s_name: "TOT")
 
-    if params['limit']
-      limit = params['limit'].to_i <200 ? params['limit']: 200
-    end
-
-    player_data = NbaPlayer.order('RAND()').limit(limit)
-
-    output_data['data'] = player_data
+    @response['data']= team_data
     
-    render json: output_data
+    render json: @response
   end
 
   def show 
-    
-    id =  params[:id].to_i
-    player_data = NbaPlayer.find(id)
-    player_play_data = NbaPlayerDatum.where(player_id: id)
 
-    @response['data'] = player_data
-    @response['play_data'] = player_play_data
+    id =  params[:id].to_i
+    team_data = NbaTeam.find_by(id: id)
+    team_season_data = NbaTeamDatum.where(team_id: id)
+
+    @response['data'] = team_data ? team_data : "Data not found"
+    @response['play_data'] = team_season_data.exists? ? team_season_data : "Data not found"
 
     render json: @response
   end

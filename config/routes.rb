@@ -4,14 +4,16 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :nba do
         resources :players
+        resources :teams
       end
       namespace :sbl do
         resources :players
+        resources :teams
       end
-      get '/404', to: 'errors#not_found'
-      get '/422', to: 'errors#unprocessable_entity'
-      get '/500', to: 'errors#server_error'
-      get '/502', to: 'errors#server_error'
     end
   end
+  get '/404', to: 'errors#not_found'
+  get '/422', to: 'errors#unprocessable_entity'
+  get '/500', to: 'errors#server_error'
+  get '/502', to: 'errors#server_error'
 end

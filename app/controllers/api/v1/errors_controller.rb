@@ -1,16 +1,19 @@
 class Api::V1::ErrorsController < ApplicationController
 	def not_found
-		data = {code: 0, msg: 'page not found'}
-		render json: data
+		@response['code'] = 404
+		@response['msg'] = "page not found"
+		render json: @response
 	end
 	
 	def unprocessable_entity
-		data = {code: 0, msg: 'page not found'}
-		render json: data
+		@response['code'] = 404
+		@response['msg'] = "page not found"
+		render json: @response
 	end
 	
 	def server_error
-		data = {code: 502, msg: 'server error'}
-		render json: data
+		@response['code'] = 502
+		@response['msg'] = "server error"	
+		render json: @response
 	end
 end

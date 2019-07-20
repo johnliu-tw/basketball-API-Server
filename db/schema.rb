@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_06_05_080012) do
 
-  create_table "counters", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "counters", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "legend", limit: 45
     t.string "craw_type", limit: 45
     t.string "count", limit: 45, default: "1"
     t.string "page", limit: 45, default: "97"
   end
 
-  create_table "nba_player_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "nba_player_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.integer "player_id"
     t.integer "team_id"
     t.string "season", limit: 45
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_080012) do
     t.index ["player_id"], name: "index_nba_player_data_on_player_id"
   end
 
-  create_table "nba_players", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "nba_players", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", limit: 155
     t.string "height", limit: 45
     t.integer "weight"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_080012) do
     t.index ["id"], name: "id_UNIQUE", unique: true
   end
 
-  create_table "nba_team_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "nba_team_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.integer "team_id"
     t.string "season", limit: 45
     t.integer "win"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_080012) do
     t.integer "top_player_id"
   end
 
-  create_table "nba_teams", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "nba_teams", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", limit: 100
     t.string "s_name", limit: 45
     t.integer "seasons"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_080012) do
     t.integer "championships"
   end
 
-  create_table "sbl_player_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sbl_player_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "player_id", limit: 45
     t.string "season", limit: 45
     t.string "team_id", limit: 45
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_080012) do
     t.float "pts"
   end
 
-  create_table "sbl_players", id: :string, limit: 45, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sbl_players", id: :string, limit: 45, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", limit: 45
     t.integer "height"
     t.integer "weight"
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_080012) do
     t.string "position", limit: 45
   end
 
-  create_table "sbl_team_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sbl_team_data", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "team_id", limit: 45
     t.string "season", limit: 45
     t.integer "win"
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_080012) do
     t.integer "ranking"
   end
 
-  create_table "sbl_teams", id: :string, limit: 45, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sbl_teams", id: :string, limit: 45, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", limit: 45
     t.integer "total_win"
     t.integer "total_lost"

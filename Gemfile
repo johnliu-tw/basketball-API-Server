@@ -8,7 +8,7 @@ gem 'mysql2'
 # Environment variables
 gem 'dotenv-rails'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # For build public data
 gem 'rack-cors'
 # Set API protection like limitation, whitelists...
